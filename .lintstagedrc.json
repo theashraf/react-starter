@@ -1,0 +1,9 @@
+{
+  "*.+(js|jsx)": [
+    "prettier --write",
+    "npm run lint -- --fix",
+    "npm run test",
+    "git add"
+  ],
+  "*.+(json|md)": ["prettier --write", "git add"]
+}
