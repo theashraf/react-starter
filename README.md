@@ -1,12 +1,14 @@
 # React Starter
 
+![](https://github.com/theashraf/react-starter/workflows/CI/badge.svg)
+
 ## Features
 
 - [x] test setup
 - [x] hot reload
 - [x] code formatting
 - [x] static code analysis using eslint
-- [x] travis starter config file
+- [x] ~~travis starter config file~~ github CI workflow config
 - [x] vaildate staged files on precommit hook
 - [x] lint commit messages on commit hooks
 
@@ -22,7 +24,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
+Launches the test runner.<br>
 
 ### `npm run build`
 
@@ -30,16 +32,16 @@ Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Your app is ready to be deployed!.
 
 ### `npm run lint`
 
-lints js and jsx files
+lints js and jsx files.
 
 ### `npm run commit`
 
-promptes you to fill out any required commit fields at commit time. No more waiting until later for a git commit hook to run and reject your commit
+promptes you to fill out any required commit fields at commit time. No more waiting until later for a git commit hook to run and reject your commit.
 
-### `npm run prettify`
+### `npm run format`
 
-formats .js|jsx|json|md files
+formats .js|jsx|json|md|yml files.

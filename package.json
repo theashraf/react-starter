@@ -7,7 +7,7 @@
     "start": "parcel ./src/index.html --no-cache --port 3000 --open",
     "build": "parcel build ./src/index.html",
     "test": "jest",
-    "lint": "eslint",
+    "lint": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|md|yml)\"",
     "commit": "git-cz"
   },
