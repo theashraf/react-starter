@@ -7,8 +7,8 @@
     "start": "parcel ./src/index.html --no-cache --port 3000 --open",
     "build": "parcel build ./src/index.html",
     "test": "jest",
-    "lint": "eslint ./src/ --ext=js,jsx",
-    "prettify": "prettier --write \"**/*.+(js|jsx|json|md)\"",
+    "lint": "eslint",
+    "format": "prettier --write \"**/*.+(js|jsx|json|md|yml)\"",
     "commit": "git-cz"
   },
   "keywords": [],
@@ -24,13 +24,14 @@
     "@testing-library/react": "^9.1.4",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
     "git-cz": "^3.2.1",
     "husky": "^3.0.5",
     "jest": "^24.9.0",
     "lint-staged": "^9.3.0",
-    "parcel-bundler": "^1.12.3",
+    "parcel-bundler": "^1.12.4",
     "prettier": "^1.18.2"
   },
   "dependencies": {
@@ -52,10 +53,57 @@
       "last 1 safari version"
     ]
   },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "plugins": [
+      "prettier",
+      "react-hooks"
+    ],
+    "env": {
+      "browser": true,
+      "jest": true,
+      "es6": true,
+      "node": true
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "trailingComma": "es5",
+    "printWidth": 90,
+    "singleQuote": true
+  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "eslint --fix",
+      "jest --findRelatedTests",
+      "git add"
+    ],
+    "*.+(json|md|yml)": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
